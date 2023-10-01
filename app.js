@@ -37,6 +37,9 @@ app.use('/user', routUser);
 app.use('/expence', routExpence);
 app.use('/premium',routpreiumuser);
 app.use('/password', routerforgot)
+app.use((req, res) => {
+    res.sendFile(path.join(__dirname, 'public/login/login.html'))
+})
 
 
 
@@ -52,7 +55,7 @@ User.hasMany(forgotPasswordRequest)
 
 sequelize.sync() // Use sequelize instance for syncing
 .then(() => {
-        app.listen( process.env.PORT);
+        app.listen( process.env.PORT, req.url);
     })
     .catch(err => {
         console.log(err);
