@@ -55,7 +55,7 @@ User.hasMany(forgotPasswordRequest)
 
 sequelize.sync() // Use sequelize instance for syncing
 .then(() => {
-        app.listen( process.env.PORT, req.url);
+        app.listen( process.env.PORT);
     })
     .catch(err => {
         console.log(err);
